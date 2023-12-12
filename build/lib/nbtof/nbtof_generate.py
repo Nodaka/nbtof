@@ -1,10 +1,36 @@
-from .nbtof_base import*
-from .nbtof_concat import *
+import tempfile
+import os
+import time
+import datetime
+from .nbtof_base import nbtof_base
+from .nbtof_concat import nbtof_update_base
 
 def nbtof_generate(
-    output_py_file,
     notebook_file,
+    output_py_file=None,
     ):
+    """
+    This function converts single or multiple notebook files into one .py file.
+    This .py file has functions which perform the same processings with notebooks.
+    
+    Parameters
+    ----------
+    notebook_file : str or list
+        notebooks are should be tagged.
+    output_py_file : str
+        output .py file with functions.
+    
+    Returns
+    -------
+    str
+        The outputed .py file.
+    """
+    
+    if output_py_file is None:
+        dt_now = datetime.datetime.now()
+        output_py_file = 'nbtof_output_' + \
+            str(dt_now.year).zfill(4) + str(dt_now.month).zfill(2) + str(dt_now.day).zfill(2) + \
+            str(dt_now.hour).zfill(2) + str(dt_now.minute).zfill(2) + str(dt_now.second).zfill(2) + '.py'
     
     with open(output_py_file, 'w') as f:
         pass
@@ -12,10 +38,17 @@ def nbtof_generate(
     if type(notebook_file) == str:
         notebook_file = [notebook_file]
     
-    for notebook_file_name in notebook_file:
-        func_file_path, _ = nbtof_base(nb_path=notebook_file_name)
-        nbtof_update_base(
-            output_py_file,
-            func_file_path)
+    with tempfile.TemporaryDirectory() as td:
+        for notebook_file_id, notebook_file_name in enumerate(notebook_file):
+            notebook_func_name = os.path.splitext(os.path.basename(notebook_file_name))[0]
+            instant_func_file_path = td + '\\' + notebook_file_name
+            func_file_path, _ = nbtof_base(
+                nb_path=notebook_file_name,
+                func_name=notebook_func_name,
+                func_file_name=instant_func_file_path,
+                )
+            nbtof_update_base(
+                output_py_file,
+                func_file_path)
 
     return output_py_file

@@ -1,3 +1,4 @@
+import numpy as np
 import tempfile
 import os
 import subprocess
@@ -9,8 +10,25 @@ def nbtof_base(
     func_name=None,
     func_file_name=None,
     ):
-    """Abstract
-    func_file_name doesn't need 
+    """
+    This function converts noetbook into a function that performs the same processing as the notebook according to nbtof tags.
+    
+    Parameters
+    ----------
+    nb_path : str
+        notebook file path
+    func_name : str
+        function's name. If nothing is assigned, func_name gets notebook file name.
+    funcfile_name : str
+        the .py file name that has the converted function.
+    
+    Returns
+    -------
+    tuple
+        str
+            output function file path.
+        str
+            output function file name.
     """
     
     if func_name is None:
@@ -37,6 +55,7 @@ def nbtof_base(
         '#@help': 6,
         '#@plane': 7,
         '#@return': 8,
+        '#@r_advance': 9,
     }
     
     table_hist_list = []
@@ -72,6 +91,8 @@ def nbtof_base(
                     code_num = code_dict['#@help']
                 elif '#@return' == line[:len('#@return')]:
                     code_num = code_dict['#@return']
+                elif '#@r_advance' == line[:len('#@r_advance')]:
+                    code_num = code_dict['#@r_advance']
                     
                 instant_table.append([code_num, line, i+1, ])
     
@@ -129,6 +150,9 @@ def nbtof_base(
         if (instant_list[0]==code_dict['#@advance']):
             instant_table.append(instant_list)
     for instant_list in table_hist_list[-1]:
+        if (instant_list[0]==code_dict['#@r_advance']):
+            instant_table.append(instant_list)
+    for instant_list in table_hist_list[-1]:
         if (instant_list[0]==code_dict['#@param']):
             instant_table.append(instant_list)
     for instant_list in table_hist_list[-1]:
@@ -161,6 +185,8 @@ def nbtof_base(
             continue
         elif ((instant_list[0]==code_dict['#@advance'])*('#@advance' == instant_list[1][:len('#@advance')])):
             continue
+        elif ((instant_list[0]==code_dict['#@r_advance'])*('#@r_advance' == instant_list[1][:len('#@r_advance')])):
+            continue
         elif ((instant_list[0]==code_dict['#@help'])*('#@help' == instant_list[1][:len('#@help')])):
             continue
         elif ((instant_list[0]==code_dict['#@plane'])*('#@plane' == instant_list[1][:len('#@plane')])):
@@ -168,6 +194,16 @@ def nbtof_base(
         elif ((instant_list[0]==code_dict['#@return'])*('#@return' == instant_list[1][:len('#@return')])) + ((instant_list[0]==code_dict['#@return'])*(instant_list[1]=='\n')):
             continue
     
+        instant_table.append(instant_list)
+    table_hist_list.append(instant_table)
+    
+    # r_advance
+    instant_table = []
+    for instant_list in table_hist_list[-1]:
+        if instant_list[0]==code_dict['#@r_advance']:
+            instant_list[1] = instant_list[1].replace('#', '')
+            instant_table.append(instant_list)
+            continue
         instant_table.append(instant_list)
     table_hist_list.append(instant_table)
     
