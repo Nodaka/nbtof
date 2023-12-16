@@ -12,18 +12,10 @@ VERSION = nbtof.__version__
 PYTHON_REQUIRES = ">=3.9"
 
 INSTALL_REQUIRES = [
-    'numpy>=1.22.4',
-    'pandas>=2.1.3',
-    'nbconvert>=7.11.0',
-    'jupyter>=1.0.0',
+    'pandas',
+    'nbconvert',
+    'jupyter',
 ]
-
-EXTRAS_REQUIRE = {
-    'tutorial': [
-        'mlxtend>=0.18.0',
-        'xgboost>=1.4.2',
-    ]
-}
 
 PACKAGES = [
     'nbtof',
@@ -57,7 +49,6 @@ setup(
     download_url=DOWNLOAD_URL,
     python_requires=PYTHON_REQUIRES,
     install_requires=INSTALL_REQUIRES,
-    extras_require=EXTRAS_REQUIRE,
     packages=PACKAGES,
     classifiers=CLASSIFIERS
     )

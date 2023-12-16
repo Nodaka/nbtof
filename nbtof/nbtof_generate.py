@@ -1,6 +1,5 @@
 import tempfile
 import os
-import time
 import datetime
 from .nbtof_base import nbtof_base
 from .nbtof_concat import nbtof_update_base
@@ -32,11 +31,11 @@ def nbtof_generate(
             str(dt_now.year).zfill(4) + str(dt_now.month).zfill(2) + str(dt_now.day).zfill(2) + \
             str(dt_now.hour).zfill(2) + str(dt_now.minute).zfill(2) + str(dt_now.second).zfill(2) + '.py'
     
-    with open(output_py_file, 'w') as f:
-        pass
-    
     if type(notebook_file) == str:
         notebook_file = [notebook_file]
+    
+    with open(output_py_file, 'w') as f:
+        pass
     
     with tempfile.TemporaryDirectory() as td:
         for notebook_file_id, notebook_file_name in enumerate(notebook_file):

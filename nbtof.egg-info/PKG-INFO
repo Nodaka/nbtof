@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: nbtof
-Version: 0.0.2
+Version: 0.0.3
 Summary: nbtof: transfering notebook to function
 Home-page: https://github.com/Nodaka/nbtof
 Download-URL: https://github.com/Nodaka/nbtof
@@ -17,13 +17,9 @@ Classifier: Framework :: Jupyter
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: numpy>=1.22.4
-Requires-Dist: pandas>=2.1.3
-Requires-Dist: nbconvert>=7.11.0
-Requires-Dist: jupyter>=1.0.0
-Provides-Extra: tutorial
-Requires-Dist: mlxtend>=0.18.0; extra == "tutorial"
-Requires-Dist: xgboost>=1.4.2; extra == "tutorial"
+Requires-Dist: pandas
+Requires-Dist: nbconvert
+Requires-Dist: jupyter
 
 # nbtof
 This module is used to transfer .ipynb file to .py function.

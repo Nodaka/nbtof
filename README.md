@@ -3,12 +3,12 @@ This module is used to transfer .ipynb file to .py function.
 **Table of contents**
 - [nbtof](#nbtof)
   - [Intoroduction](#intoroduction)
+  - [Installation](#installation)
   - [Documantation](#documantation)
     - [Tags](#tags)
   - [Examples and Recomended Usage](#examples-and-recomended-usage)
     - [Setting Parameters](#setting-parameters)
     - [Batch processing](#batch-processing)
-  - [Installation](#installation)
 
 
 
@@ -45,11 +45,17 @@ nbtof.nbtof_generate(
 ```
 
 **output.py**
+
 ```python
 def short_sample(a, b):
     c = a + b
     return c
 ```
+## Installation
+The latest nbtof can be installed from PyPI:
+  pip install nbtof
+
+
 ## Documantation
 ### Tags
 | Tag | Description |
@@ -70,5 +76,4 @@ def short_sample(a, b):
 ### Batch processing
 複数のnotebook, 関数をまとめて1つの py fileに出力する場合は引数の`notebook_file`にnotebookのfilenameもしくはfilepathをリストにして渡す.
 
-## Installation
 
