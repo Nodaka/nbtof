@@ -1,5 +1,5 @@
 # nbtof
-This module is used to transfer .ipynb file to .py function.
+This module is used to transfer .ipynb file to .py function.  
 **Table of contents**
 - [nbtof](#nbtof)
   - [Intoroduction](#intoroduction)
@@ -14,8 +14,9 @@ This module is used to transfer .ipynb file to .py function.
 
 ## Intoroduction
 
-Jupyter notebookに`#@`タグをつけることで, notebookの一連の処理を関数に変換することができます.  
-たとえば, 下記`short_sample.ipynb`の処理を関数化する場合, 
+By writing the `#@~` marks in notebook files, you can transfer notebook file to py file with the function which perform the same process as notebook.  
+For example, in the case that you want to transfer `short_sample.ipynb` to function,
+
   
 **short_sample.ipynb**
 
@@ -33,7 +34,7 @@ c
 ```
   
 
-以下を実行すると, 関数化された`output.py`が出力されます.
+you can take functionalized py file `output.py`.
 
 ```python
 import nbtof
@@ -53,7 +54,9 @@ def short_sample(a, b):
 ```
 ## Installation
 The latest nbtof can be installed from PyPI:
-  pip install nbtof
+```
+pip install nbtof
+```
 
 
 ## Documantation
