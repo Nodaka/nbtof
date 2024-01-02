@@ -1,6 +1,6 @@
 # nbtof
-This module is used to transfer .ipynb file to .py function.  
-**Table of contents**
+This module is used to convert .ipynb file to .py function.  
+**Table of contents**  
 - [nbtof](#nbtof)
   - [Intoroduction](#intoroduction)
   - [Installation](#installation)
@@ -14,8 +14,8 @@ This module is used to transfer .ipynb file to .py function.
 
 ## Intoroduction
 
-By writing the `#@~` marks in notebook files, you can transfer notebook file to py file with the function which perform the same process as notebook.  
-For example, in the case that you want to transfer `short_sample.ipynb` to function,
+Only by writing the `#@~` marks in notebook files, you can easily convert notebook file to py file with the function which perform the same process as notebook.  
+For example, in the case that you want to convert `short_sample.ipynb` to function.
 
   
 **short_sample.ipynb**
@@ -33,8 +33,7 @@ c = a + b
 c
 ```
   
-
-you can take functionalized py file `output.py`.
+You can take functionalized py file `output.py` by executing the next code.
 
 ```python
 import nbtof
@@ -53,7 +52,7 @@ def short_sample(a, b):
     return c
 ```
 ## Installation
-The latest nbtof can be installed from PyPI:
+The latest nbtof can be installed from PyPI:  
 ```
 pip install nbtof
 ```
@@ -63,13 +62,15 @@ pip install nbtof
 ### Tags
 | Tag | Description |
 | ---- | ---- |
-| `#@param` | 関数の引数になります. 代入した数値は無視されます. |
-| `#@default` | 関数の引数になります. 代入した数値が既定値として設定されます. |
-| `#@args` | 関数の可変長引数 ***args** になります. 代入した数値は無視されます. |
-| `#@kwargs` | 関数の可変長引数 ****kwargs** になります. 代入した数値は無視されます. |
-| `#@return` | 関数の戻り値になります. |
-| `#@ignore` | セル内の内容は無視されます. |
-| `#@help` | 関数内の docstring になります. |
+| `#@param` | Variable names in the cell become function's argument names. The values assigned at the notebook is ignored. |
+| `#@default` | Variable names in the cell become function's argument names. The values assigned at the notebook get default values. |
+| `#@args` | Variable names in the cell become function's variable length argument ***args** names. The values assigned at the notebook is ignored. |
+| `#@kwargs` | Variable names in the cell become function's variable length argument ****kwargs** names. The values assigned at the notebook is ignored. |
+| `#@return` | Variable names in the cell become function's return value |
+| `#@ignore` | Anything in the cell is ignored. |
+| `#@help` | What you write becomes function's docstring. Please write it in quotation marks. |
+| `#@advance` | You use this tag for codes which you don't want to include in the function but in the py file (ex. import) |
+| `#@r_advance` | You use this tag for codes which you don't want to run at notebook but include in the py file (ex. relative import) |
 
 
 
@@ -77,6 +78,5 @@ pip install nbtof
 
 ### Setting Parameters
 ### Batch processing
-複数のnotebook, 関数をまとめて1つの py fileに出力する場合は引数の`notebook_file`にnotebookのfilenameもしくはfilepathをリストにして渡す.
 
 
