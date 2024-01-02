@@ -40,7 +40,7 @@ def nbtof_generate(
     with tempfile.TemporaryDirectory() as td:
         for notebook_file_id, notebook_file_name in enumerate(notebook_file):
             notebook_func_name = os.path.splitext(os.path.basename(notebook_file_name))[0]
-            instant_func_file_path = td + '\\' + notebook_file_name
+            instant_func_file_path = td + '\\' + os.path.split("notebook_file_name.ipynb")[1] + ".ipynb"
             func_file_path, _ = nbtof_base(
                 nb_path=notebook_file_name,
                 func_name=notebook_func_name,
@@ -49,5 +49,7 @@ def nbtof_generate(
             nbtof_update_base(
                 output_py_file,
                 func_file_path)
+    
+    td + '\\' + os.path.split("notebook_file_name.ipynb")[1]
 
     return output_py_file
