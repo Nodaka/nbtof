@@ -223,6 +223,7 @@ def nbtof_base(
             instant_list[1] = return_txt
         elif (instant_list[0]==code_dict['#@help']):
             instant_list[1] = '    ' + instant_list[1]
+        
         elif (instant_list[0]==code_dict['#@param'])*('=' in (instant_list[1])):
             instant_list[1] = '    ' + instant_list[1].split('=')[0].replace(' ', '') + ',\n'
         elif (instant_list[0]==code_dict['#@args'])*('=' in (instant_list[1])):
@@ -231,6 +232,13 @@ def nbtof_base(
             instant_list[1] = '    ' + instant_list[1].replace('\n','').replace(' ', '') + ',\n'
         elif (instant_list[0]==code_dict['#@kwargs'])*('=' in (instant_list[1])):
             instant_list[1] = '    **' + instant_list[1].split('=')[0].replace(' ', '') + ',\n'
+        
+        elif (instant_list[0]==code_dict['#@param'])*('=' not in (instant_list[1])):
+            continue
+        elif (instant_list[0]==code_dict['#@args'])*('=' not in (instant_list[1])):
+            continue
+        elif (instant_list[0]==code_dict['#@kwargs'])*('=' not in (instant_list[1])):
+            continue
         instant_table.append(instant_list)
     table_hist_list.append(instant_table)
     
