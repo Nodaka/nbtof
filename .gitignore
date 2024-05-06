@@ -1,0 +1,12 @@
+base_nb/ast_test
+base_nb/nbtof_test
+base_nb/sample_a.ipynb
+base_nb/sample_b.ipynb
+base_nb/sample_c.ipynb
+base_nb/sample.py
+nbtof/__pycache__
+images
+dist
+build
+nbtof.egg-info
+.gitattributes
