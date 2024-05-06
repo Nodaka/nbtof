@@ -10,3 +10,4 @@ dist
 build
 nbtof.egg-info
 .gitattributes
+MANIFEST.in
