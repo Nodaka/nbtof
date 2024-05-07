@@ -11,7 +11,7 @@ This module is used to convert Jupyter Notebook to the python function with the 
 
 - [Introduction](#introduction)
 - [Installation](#installation)
-- [Documantation](#documantation)
+- [Documentation](#documentation)
   - [Marks list](#marks-list)
   - [Details about marks](#details-about-marks)
     - [#@param](#param)
@@ -74,7 +74,7 @@ $ pip install nbtof
 ```
 
 
-## Documantation
+## Documentation
 
 ### Marks list
 
@@ -88,7 +88,7 @@ $ pip install nbtof
 | `#@ignore` | Anything in the cell is ignored. |
 | `#@help` | What you write in the cell becomes function's docstring. Please write it in quotation marks. |
 | `#@advance` | What you write in the cell is written before the function declaration as it is. (e.g., imports) |
-| `#@r_advance` | The comment line with `#` in the cell is written with the `#` removed before the function declaration. <br>Please use to avoid the error in Jupyter Notebook (e.g., relative imports) | 
+| `#@r_advance` | The comment line with `#` in the cell is written with the `#` removed before the function declaration. Please use to avoid the error in Jupyter Notebook (e.g., relative imports) | 
 
 ### Details about marks
 
