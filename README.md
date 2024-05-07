@@ -1,9 +1,15 @@
 # nbtof <!-- omit in toc -->
 
+---
+
+| English | [日本語](https://github.com/Nodaka/nbtof/blob/main/i18n/README-JA.md) |
+
+---
+
 This module is used to convert Jupyter Notebook to the python function with the same process.  
 
 
-- [Intoroduction](#intoroduction)
+- [Introduction](#introduction)
 - [Installation](#installation)
 - [Documantation](#documantation)
   - [Marks list](#marks-list)
@@ -20,7 +26,7 @@ This module is used to convert Jupyter Notebook to the python function with the 
 
 
 
-## Intoroduction
+## Introduction
 
 Only by writing the `#@~` marks in Jupyter Notebook file, you can easily convert Jupyter Notebook file to the python source file with the function which perform the same process as the Jupyter Notebook file. For example, in the case that you want to convert `sample.ipynb` to function,
 
@@ -64,7 +70,7 @@ def sample(a, b):
 The latest nbtof can be installed from PyPI:  
 
 ```
-pip install nbtof
+$ pip install nbtof
 ```
 
 
