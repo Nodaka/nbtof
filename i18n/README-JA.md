@@ -2,7 +2,7 @@
 
 ---
 
-| [English]() | 日本語 |
+| [English](https://github.com/Nodaka/nbtof/blob/main/README.md) | 日本語 |
 
 ---
 
