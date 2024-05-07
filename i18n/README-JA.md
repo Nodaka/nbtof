@@ -6,9 +6,6 @@
 
 ---
 
-This module is used to convert Jupyter Notebook to the python function with the same process.  
-
-
 - [はじめに](#はじめに)
 - [インストール方法](#インストール方法)
 - [利用方法](#利用方法)
