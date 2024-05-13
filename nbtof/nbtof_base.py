@@ -6,8 +6,8 @@ import copy
 
 def nbtof_base(
     notebook_name,
-    func_name=None,
-    func_file_name=None,
+    func_name = None,
+    func_file_name = None,
     ):
     """
     This function converts noetbook into a function that performs the same processing as the notebook according to nbtof tags.
@@ -232,7 +232,7 @@ def nbtof_base(
         elif (instant_list[0]==code_dict['#@args'])*('=' in (instant_list[1])):
             instant_list[1] = '    *' + instant_list[1].split('=')[0].replace(' ', '') + ',\n'
         elif (instant_list[0]==code_dict['#@default'])*('=' in (instant_list[1])):
-            instant_list[1] = '    ' + instant_list[1].replace('\n','').replace(' ', '') + ',\n'
+            instant_list[1] = '    ' + instant_list[1].replace('\n','') + ',\n'
         elif (instant_list[0]==code_dict['#@kwargs'])*('=' in (instant_list[1])):
             instant_list[1] = '    **' + instant_list[1].split('=')[0].replace(' ', '') + ',\n'
         
