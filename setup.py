@@ -7,7 +7,7 @@ AUTHOR_EMAIL = 'haruka.nodaka@gmail.com'
 URL = 'https://github.com/Nodaka/nbtof'
 LICENSE = 'MIT'
 DOWNLOAD_URL = 'https://github.com/Nodaka/nbtof'
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 PYTHON_REQUIRES = ">=3.9"
 
 INSTALL_REQUIRES = [
