@@ -1,0 +1,21 @@
+nbtof package
+=============
+
+Submodules
+----------
+
+nbtof.nbtof\_generate module
+----------------------------
+
+.. automodule:: nbtof.nbtof_generate
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: nbtof
+   :members:
+   :undoc-members:
+   :show-inheritance:
